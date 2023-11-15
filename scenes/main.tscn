@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scenes/P2Score.gd" id="8_6ireb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ky4"]
-size = Vector2(1279, 32.5)
+size = Vector2(1276.5, 32.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkmae"]
 size = Vector2(20, 718.75)
@@ -49,7 +49,7 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/TopWall"]
-position = Vector2(636, -12)
+position = Vector2(637.25, -12.125)
 shape = SubResource("RectangleShape2D_u7ky4")
 
 [node name="BottomWall" type="StaticBody2D" parent="Node"]
@@ -77,17 +77,19 @@ shape = SubResource("RectangleShape2D_pkmae")
 debug_color = Color(0.882353, 0.219608, 0.639216, 0.788235)
 
 [node name="P1Score" type="Label" parent="."]
-offset_left = 594.0
-offset_right = 634.0
-offset_bottom = 86.0
+offset_left = 540.0
+offset_top = 13.0
+offset_right = 580.0
+offset_bottom = 99.0
 text = "0"
 label_settings = SubResource("LabelSettings_y8e35")
 script = ExtResource("7_eqn0j")
 
 [node name="P2Score" type="Label" parent="."]
-offset_left = 648.0
-offset_right = 688.0
-offset_bottom = 86.0
+offset_left = 700.0
+offset_top = 10.0
+offset_right = 740.0
+offset_bottom = 96.0
 text = "0"
 label_settings = SubResource("LabelSettings_y8e35")
 script = ExtResource("8_6ireb")

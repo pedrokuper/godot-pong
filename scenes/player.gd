@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: int = 400
+var speed: int = 900
 
 func _physics_process(delta):
 	if $".".name == 'Player1':
