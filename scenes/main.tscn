@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scenes/P2Score.gd" id="8_6ireb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ky4"]
-size = Vector2(1284, 32.5)
+size = Vector2(1279, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkmae"]
 size = Vector2(20, 718.75)
@@ -45,16 +45,20 @@ metadata/_edit_lock_ = true
 [node name="Node" type="Node" parent="."]
 
 [node name="TopWall" type="StaticBody2D" parent="Node"]
+collision_layer = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/TopWall"]
-position = Vector2(636, -17)
+position = Vector2(636, -12)
 shape = SubResource("RectangleShape2D_u7ky4")
 
 [node name="BottomWall" type="StaticBody2D" parent="Node"]
 position = Vector2(0, 752)
+collision_layer = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/BottomWall"]
-position = Vector2(637, -15.75)
+position = Vector2(637, -22)
 shape = SubResource("RectangleShape2D_u7ky4")
 
 [node name="P1Back" type="Area2D" parent="Node"]
