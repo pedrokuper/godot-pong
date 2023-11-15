@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://dsty8cgd4e1ks"]
+
+[ext_resource type="Texture2D" uid="uid://dvg53dkth6mkd" path="res://resources/background.png" id="1_0xntb"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_2t0ij"]
+[ext_resource type="PackedScene" uid="uid://d0g7d4aw4dylb" path="res://scenes/ball.tscn" id="2_qtycc"]
+[ext_resource type="PackedScene" uid="uid://dpmqto3yetrgb" path="res://scenes/player.tscn" id="3_fn8ke"]
+[ext_resource type="Script" path="res://scenes/ball.gd" id="3_mjfo4"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="4_yvk7d"]
+[ext_resource type="Script" path="res://scenes/P1Score.gd" id="7_eqn0j"]
+[ext_resource type="Script" path="res://scenes/P2Score.gd" id="8_6ireb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ky4"]
+size = Vector2(1284, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkmae"]
+size = Vector2(20, 718.75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8e35"]
+font_size = 60
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2t0ij")
+metadata/_edit_vertical_guides_ = [3430.0]
+metadata/_edit_horizontal_guides_ = [1518.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639, 360)
+texture = ExtResource("1_0xntb")
+metadata/_edit_lock_ = true
+
+[node name="Ball" parent="." instance=ExtResource("2_qtycc")]
+position = Vector2(639, 360)
+script = ExtResource("3_mjfo4")
+
+[node name="Player1" parent="." instance=ExtResource("3_fn8ke")]
+position = Vector2(61, 361)
+script = ExtResource("4_yvk7d")
+metadata/_edit_lock_ = true
+
+[node name="Player2" parent="." instance=ExtResource("3_fn8ke")]
+position = Vector2(1218, 361)
+script = ExtResource("4_yvk7d")
+metadata/_edit_lock_ = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TopWall" type="StaticBody2D" parent="Node"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/TopWall"]
+position = Vector2(636, -17)
+shape = SubResource("RectangleShape2D_u7ky4")
+
+[node name="BottomWall" type="StaticBody2D" parent="Node"]
+position = Vector2(0, 752)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/BottomWall"]
+position = Vector2(637, -15.75)
+shape = SubResource("RectangleShape2D_u7ky4")
+
+[node name="P1Back" type="Area2D" parent="Node"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/P1Back"]
+position = Vector2(-12, 359.625)
+shape = SubResource("RectangleShape2D_pkmae")
+debug_color = Color(0.882353, 0.219608, 0.639216, 0.788235)
+
+[node name="P2Back" type="Area2D" parent="Node"]
+position = Vector2(1299, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/P2Back"]
+position = Vector2(-10, 360.5)
+shape = SubResource("RectangleShape2D_pkmae")
+debug_color = Color(0.882353, 0.219608, 0.639216, 0.788235)
+
+[node name="P1Score" type="Label" parent="."]
+offset_left = 594.0
+offset_right = 634.0
+offset_bottom = 86.0
+text = "0"
+label_settings = SubResource("LabelSettings_y8e35")
+script = ExtResource("7_eqn0j")
+
+[node name="P2Score" type="Label" parent="."]
+offset_left = 648.0
+offset_right = 688.0
+offset_bottom = 86.0
+text = "0"
+label_settings = SubResource("LabelSettings_y8e35")
+script = ExtResource("8_6ireb")
+
+[connection signal="body_entered" from="Node/P1Back" to="." method="_on_p_1_back_body_entered"]
+[connection signal="body_entered" from="Node/P2Back" to="." method="_on_p_2_back_body_entered"]
