@@ -88,9 +88,5 @@ text = "0"
 label_settings = SubResource("LabelSettings_y8e35")
 script = ExtResource("8_6ireb")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="body_entered" from="Node/P1Back" to="." method="_on_p_1_back_body_entered"]
 [connection signal="body_entered" from="Node/P2Back" to="." method="_on_p_2_back_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
