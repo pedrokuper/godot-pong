@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	var collision_obj = move_and_collide(self.velocity * speed * delta)
 	if collision_obj:
-		self.velocity = self.velocity.bounce(collision_obj.get_normal()) * 1.03
+		self.velocity = self.velocity.bounce(collision_obj.get_normal())
 		
 
 func restart_ball(player): 

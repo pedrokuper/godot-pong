@@ -8,10 +8,10 @@ size = Vector2(22, 162)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cqmsw")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_0bblj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cqmsw")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
